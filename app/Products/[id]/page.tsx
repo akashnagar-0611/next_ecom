@@ -1,4 +1,4 @@
-
+import { Suspense } from "react";
 import { notFound } from 'next/navigation';
 import ProductDetailsClient from '../../_components/ProductDetails';
 import { products } from '../../lib/products';
@@ -6,6 +6,8 @@ import { products } from '../../lib/products';
 type ProductPageProps = {
   params: Promise<{ id: string }>;
 };
+
+export const instant = false
 
 export default async function ProductPage({
   params,
@@ -20,5 +22,9 @@ export default async function ProductPage({
     notFound();
   }
 
-  return <div className='bg-white' ><ProductDetailsClient product={product} /></div>;
+  return (
+    <div className="bg-white">
+      <ProductDetailsClient product={product} />
+    </div>
+  );
 }
