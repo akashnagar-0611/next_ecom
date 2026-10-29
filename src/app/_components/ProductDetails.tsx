@@ -13,7 +13,7 @@ export default function ProductDetailsClient({ product }: Props) {
   return (
     <main className=" mx-auto max-w-7xl px-4 py-10">
       <Link
-        href="/Products"
+        href="/products"
         className="mb-6 inline-block text-sm text-gray-600 hover:text-black"
       >
         ← Back to products

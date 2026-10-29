@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import ProductDetailsClient from '@/app/_components/ProductDetails';
+import ProductDetailsClient from '@/app/_components/productDetails';
 import { products } from '@/app/lib/products';
 
 type ProductPageProps = {

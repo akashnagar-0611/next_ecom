@@ -34,7 +34,7 @@ export default function ProductCard({
   return (
     <div className="group overflow-hidden rounded-xl border border-gray-200 bg-white transition-shadow hover:shadow-lg">
       <Link
-        href={`/Products/${product.id}`} 
+        href={`/products/${product.id}`} 
         className="block"
       >
         <div className="relative aspect-square overflow-hidden bg-gray-100">

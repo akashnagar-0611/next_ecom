@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '@/app/_components/layout/Navbar'
+import Navbar from '@/app/_components/layout/navbar'
 import { FaUserAlt } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";

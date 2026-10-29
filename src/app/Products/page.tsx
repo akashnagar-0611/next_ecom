@@ -1,6 +1,6 @@
 'use client';
 
-import ProductCard from '@/app/_components/ProductCard'
+import ProductCard from '@/app/_components/productCard'
 import { products } from '@/app/lib/products';
 
 

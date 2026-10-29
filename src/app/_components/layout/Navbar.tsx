@@ -7,10 +7,10 @@ const Navbar = () => {
         <Link href={"/"} className='mr-5 text-black'>
             <span>Home</span>
         </Link>
-        <Link href={"/Products"} className='mr-5 text-black'>
+        <Link href={"/products"} className='mr-5 text-black'>
             <span>Products</span>
         </Link>
-        <Link href={"/Categories/boots"} className='mr-5 text-black'>
+        <Link href={"/categories/boots"} className='mr-5 text-black'>
             <span>Categories</span>
         </Link>
     </div>
