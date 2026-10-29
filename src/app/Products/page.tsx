@@ -1,15 +1,10 @@
 'use client';
 
-import React from 'react'
-import ProductCard from '../_components/ProductCard'
-import type { Product } from '../lib/products';
-import { products } from '../lib/products';
+import ProductCard from '@/app/_components/ProductCard'
+import { products } from '@/app/lib/products';
 
 
 function Products() {
-    function handleAddToCart(product: Product) {
-        console.log('Added to cart:', product);
-    }
     return (
         <div className="flex flex-1 flex-col bg-white">
             <main className="mx-auto max-w-7xl px-4 py-8">
@@ -22,7 +17,6 @@ function Products() {
                         <ProductCard
                             key={product.id}
                             product={product}
-                            // onAddToCart={handleAddToCart}
                         />
                     ))}
                 </div>

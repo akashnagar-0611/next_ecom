@@ -1,7 +1,6 @@
-import { Suspense } from "react";
 import { notFound } from 'next/navigation';
-import ProductDetailsClient from '../../_components/ProductDetails';
-import { products } from '../../lib/products';
+import ProductDetailsClient from '@/app/_components/ProductDetails';
+import { products } from '@/app/lib/products';
 
 type ProductPageProps = {
   params: Promise<{ id: string }>;

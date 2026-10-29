@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Product } from '../lib/products';
+import type { Product } from '@/app/lib/products';
 
 type Props = {
   product: Product;
