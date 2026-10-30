@@ -1,19 +1,21 @@
 import Link from 'next/link'
-import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='flex flex-row  bg-secondary px-10 items-center h-10 max-h-10' >
-        <Link href={"/"} className='mr-5 text-black'>
-            <span>Home</span>
-        </Link>
-        <Link href={"/products"} className='mr-5 text-black'>
-            <span>Products</span>
-        </Link>
-        <Link href={"/categories/boots"} className='mr-5 text-black'>
-            <span>Categories</span>
-        </Link>
-    </div>
+    <nav
+      aria-label="Main navigation"
+      className="flex min-h-11 items-center gap-5 overflow-x-auto bg-secondary px-3 text-sm sm:gap-8 sm:px-6 sm:text-base lg:px-8"
+    >
+      <Link href="/" className="shrink-0 py-2 text-black underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">
+        Home
+      </Link>
+      <Link href="/products" className="shrink-0 py-2 text-black underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">
+        Products
+      </Link>
+      <Link href="/categories/boots" className="shrink-0 py-2 text-black underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">
+        Categories
+      </Link>
+    </nav>
   )
 }
 

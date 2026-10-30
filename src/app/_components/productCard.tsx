@@ -1,4 +1,6 @@
 
+ 'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -32,7 +34,7 @@ export default function ProductCard({
       : 0;
 
   return (
-    <div className="group overflow-hidden rounded-xl border border-gray-200 bg-white transition-shadow hover:shadow-lg">
+    <div className="group min-w-0 overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-lg">
       <Link
         href={`/products/${product.id}`} 
         className="block"
@@ -53,14 +55,14 @@ export default function ProductCard({
           )}
         </div>
 
-        <div className="space-y-2 p-4">
+        <div className="space-y-2 p-3 sm:p-4">
           {product.category && (
             <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
               {product.category}
             </p>
           )}
 
-          <h3 className="line-clamp-2 min-h-10 text-sm font-semibold text-gray-900">
+          <h3 className="line-clamp-2 min-h-10 text-sm font-semibold text-gray-900 sm:text-base">
             {product.title}
           </h3>
 
@@ -74,7 +76,7 @@ export default function ProductCard({
           )}
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-lg font-bold text-gray-900">
+            <span className="text-base font-bold text-gray-900 sm:text-lg">
               ₹{product.price.toLocaleString('en-IN')}
             </span>
 
@@ -88,11 +90,11 @@ export default function ProductCard({
         </div>
       </Link>
 
-      <div className="px-4 pb-4">
+      <div className="px-3 pb-3 sm:px-4 sm:pb-4">
         <button
           type="button"
           onClick={() => onAddToCart?.(product)}
-          className="w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+          className="min-h-11 w-full rounded-md bg-black px-3 py-2 text-xs font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 sm:px-4 sm:text-sm"
         >
           Add to Cart
         </button>

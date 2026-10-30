@@ -47,4 +47,26 @@ export const products: Product[] = [
     rating: 4.3,
     category: 'Footwear',
   },
+  {
+    id: 104,
+    title: 'Running Shoes',
+    slug: 'running-shoes',
+    image: 'https://placehold.co/600x600/png?text=Running+Shoes',
+    description:
+      'Lightweight running shoes designed for comfort during walks, workouts, and daily activities.',
+    price: 1799,
+    rating: 4.3,
+    category: 'Footwear',
+  },
+  {
+    id: 105,
+    title: 'Running Shoes',
+    slug: 'running-shoes',
+    image: 'https://placehold.co/600x600/png?text=Running+Shoes',
+    description:
+      'Lightweight running shoes designed for comfort during walks, workouts, and daily activities.',
+    price: 1799,
+    rating: 4.3,
+    category: 'Footwear',
+  },
 ];
