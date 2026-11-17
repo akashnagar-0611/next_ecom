@@ -2,7 +2,8 @@
  'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from "next-intl";
 
 export type Product = {
   id: string | number;
@@ -24,6 +25,7 @@ export default function ProductCard({
   product,
   onAddToCart,
 }: ProductCardProps) {
+  const t = useTranslations("Cta");
   const discount =
     product.originalPrice && product.originalPrice > product.price
       ? Math.round(
@@ -34,7 +36,7 @@ export default function ProductCard({
       : 0;
 
   return (
-    <div className="group min-w-0 overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-lg">
+    <div className="group min-w-0 overflow-hidden rounded-lg border bg-white transition-shadow hover:shadow-lg">
       <Link
         href={`/products/${product.id}`} 
         className="block"
@@ -96,7 +98,7 @@ export default function ProductCard({
           onClick={() => onAddToCart?.(product)}
           className="min-h-11 w-full rounded-md bg-black px-3 py-2 text-xs font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 sm:px-4 sm:text-sm"
         >
-          Add to Cart
+          {t("addToCart")}
         </button>
       </div>
     </div>

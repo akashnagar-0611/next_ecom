@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import ProductDetailsClient from '@/app/_components/productDetails';
-import { products } from '@/app/lib/products';
+import ProductDetailsClient from '@/app/[locale]/_components/productDetails';
+import { products } from '@/app/[locale]/lib/products';
 
 type ProductPageProps = {
   params: Promise<{ id: string }>;

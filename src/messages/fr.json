@@ -1,0 +1,27 @@
+{
+  "Header": {
+    "myAccount": "Mon compte",
+    "cart": "Panier",
+    "searchProducts": "Rechercher des produits..."
+  },
+  "NavBar": {
+    "home": "Accueil",
+    "products": "Produits",
+    "categories": "Catégories"
+  },
+  "Footer": {
+    "title": "© 2026 Nexa Shopping. Tous droits réservés."
+  },
+  "Cta": {
+    "addToCart": "Ajouter au panier"
+  },
+  "Products": {
+    "title": "Nos produits"
+  },
+  "Categories": {
+    "title": "Catégories"
+  },
+  "PDP": {
+    "backToProducts": "Retour aux produits"
+  }
+}
