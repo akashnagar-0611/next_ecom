@@ -1,6 +1,8 @@
 {
   "Header": {
-    "myAccount": "Mon compte",
+    "userName": "Mon compte",
+    "myOrders": "Mes commandes",
+    "account": "Paramètres",
     "cart": "Panier",
     "searchProducts": "Rechercher des produits..."
   },
@@ -22,6 +24,16 @@
     "title": "Catégories"
   },
   "PDP": {
-    "backToProducts": "Retour aux produits"
+    "backToProducts": "Retour aux produits",
+    "addToCart": "Ajouter au panier"
+  },
+  "Cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide.",
+    "shopNow": "Continuer vos achats",
+    "summary": "Récapitulatif de la commande",
+    "subtotal": "Sous-total",
+    "quantity": "Quantité",
+    "remove": "Supprimer"
   }
 }

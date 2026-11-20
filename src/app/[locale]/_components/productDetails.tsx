@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import type { Product } from '@/app/[locale]/lib/products';
+import { useRouter } from '@/i18n/navigation';
+import { useCart } from '@/app/[locale]/context/cartContext';
 
 type Props = {
   product: Product;
@@ -11,6 +13,8 @@ type Props = {
 
 export default function ProductDetailsClient({ product }: Props) {
   const t = useTranslations("PDP");
+  const router = useRouter();
+  const { addToCart } = useCart();
   return (
     <main className="mx-auto w-full max-w-full bg-background  px-3 py-5 sm:px-6 sm:py-8 lg:px-8">
       <Link
@@ -65,10 +69,13 @@ export default function ProductDetailsClient({ product }: Props) {
 
           <button
             type="button"
-            onClick={() => alert(`${product.title} added to cart`)}
+            onClick={() => {
+              addToCart(product);
+              router.push("/cart");
+            }}
             className="mt-6 min-h-12 w-full rounded-md bg-foreground px-5 py-3 text-sm font-semibold text-muted cursor-pointer sm:mt-8 sm:text-base"
           >
-            Add to Cart
+            {t("addToCart")}
           </button>
         </section>
       </div>

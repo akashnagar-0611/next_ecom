@@ -1,12 +1,33 @@
-import { Suspense } from "react";
+'use client';
+
+import { useState, type MouseEvent } from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import Navbar from '@/app/[locale]/_components/layout/navbar'
-import LanguageSwitcher from "@/app/[locale]/_components/LanguageSwitcher";
 import { FaAngleDown, FaCartArrowDown, FaUserAlt } from 'react-icons/fa'
 
 
 const Header = () => {
     const t = useTranslations("Header");
+    const router = useRouter();
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const isAccountMenuOpen = Boolean(anchorEl);
+
+    const openAccountMenu = (event: MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const closeAccountMenu = () => {
+        setAnchorEl(null);
+    };
+
+    const navigateToAccount = (href: "/account" | "/account/orders") => {
+        closeAccountMenu();
+        router.push(href);
+    };
 
     return (
     <header className="shrink-0">
@@ -28,14 +49,72 @@ const Header = () => {
                 </label>
 
                 <div className="flex items-center justify-self-end gap-3 text-sm sm:col-start-3 sm:row-start-1 sm:gap-4">
-                    <div className="flex items-center gap-2 text-amber-50">
-                        <FaUserAlt aria-hidden="true" className="size-4" />
-                        <span className="sr-only sm:not-sr-only">{t("myAccount")}</span>
-                        <FaAngleDown
-                            aria-hidden="true"
-                            className="hidden size-4 sm:block"
-                        />
-                    </div>
+                    <Button
+                        type="button"
+                        id="account-menu-button"
+                        aria-controls={isAccountMenuOpen ? "account-menu" : undefined}
+                        aria-haspopup="menu"
+                        aria-expanded={isAccountMenuOpen ? "true" : undefined}
+                        onClick={openAccountMenu}
+                        startIcon={<FaUserAlt aria-hidden="true" />}
+                        endIcon={
+                            <FaAngleDown
+                                aria-hidden="true"
+                                className="hidden sm:block"
+                            />
+                        }
+                        sx={{
+                            minHeight: 44,
+                            color: "#fffbeb",
+                            gap: 0.5,
+                            padding: "8px",
+                            textTransform: "none",
+                            fontSize: "inherit",
+                            "&:hover": {
+                                backgroundColor: "rgba(255, 255, 255, 0.12)",
+                            },
+                            "&:focus-visible": {
+                                outline: "2px solid #ffffff",
+                                outlineOffset: "2px",
+                            },
+                        }}
+                    >
+                        <span className="sr-only sm:not-sr-only">{t("userName")}</span>
+                    </Button>
+                    <Menu
+                        id="account-menu"
+                        anchorEl={anchorEl}
+                        open={isAccountMenuOpen}
+                        onClose={closeAccountMenu}
+                        anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "right",
+                        }}
+                        transformOrigin={{
+                            vertical: "top",
+                            horizontal: "right",
+                        }}
+                        slotProps={{
+                            list: {
+                                "aria-labelledby": "account-menu-button",
+                            },
+                            paper: {
+                                sx: {
+                                    mt: 1,
+                                    minWidth: 176,
+                                },
+                            },
+                        }}
+                    >
+                        <MenuItem
+                            onClick={() => navigateToAccount("/account/orders")}
+                        >
+                            {t("myOrders")}
+                        </MenuItem>
+                        <MenuItem onClick={() => navigateToAccount("/account")}>
+                            {t("account")}
+                        </MenuItem>
+                    </Menu>
                     <div className="flex items-center gap-2 text-amber-50">
                         <FaCartArrowDown aria-hidden="true" className="size-4" />
                         <span className="sr-only sm:not-sr-only">{t("cart")}</span>
@@ -43,11 +122,11 @@ const Header = () => {
                     {/* <div className="flex items-center gap-2">
                       <ThemeToggle />
                     </div> */}
-                    <div className="flex items-center gap-2">
+                    {/* <div className="flex items-center gap-2">
                        <Suspense fallback={<span className="h-10 w-24" />}>
                            <LanguageSwitcher />
                        </Suspense>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

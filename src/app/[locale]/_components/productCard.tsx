@@ -4,6 +4,8 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from "next-intl";
+import { useRouter } from '@/i18n/navigation';
+import { useCart } from '@/app/[locale]/context/cartContext';
 
 export type Product = {
   id: string | number;
@@ -18,14 +20,12 @@ export type Product = {
 
 type ProductCardProps = {
   product: Product;
-  onAddToCart?: (product: Product) => void;
 };
 
-export default function ProductCard({
-  product,
-  onAddToCart,
-}: ProductCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
   const t = useTranslations("Cta");
+  const router = useRouter();
+  const { addToCart } = useCart();
   const discount =
     product.originalPrice && product.originalPrice > product.price
       ? Math.round(
@@ -95,7 +95,10 @@ export default function ProductCard({
       <div className="px-3 pb-3 sm:px-4 sm:pb-4">
         <button
           type="button"
-          onClick={() => onAddToCart?.(product)}
+          onClick={() => {
+            addToCart(product);
+            router.push("/cart");
+          }}
           className="min-h-11 w-full rounded-md bg-black px-3 py-2 text-xs font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 sm:px-4 sm:text-sm"
         >
           {t("addToCart")}

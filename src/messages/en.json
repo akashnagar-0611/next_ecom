@@ -1,6 +1,8 @@
 {
   "Header": {
-    "myAccount": "My Account",
+    "userName": "User Name",
+    "myOrders": "My Orders",
+    "account": "My Account",
     "cart": "Cart",
     "searchProducts": "Search Products..."
   },
@@ -22,6 +24,16 @@
     "title": "Categories"
   },
   "PDP":{
-    "backToProducts":"Back to products"
+    "backToProducts":"Back to products",
+    "addToCart":"Add to Cart"
+  },
+  "Cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "shopNow": "Continue Shopping",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "quantity": "Quantity",
+    "remove": "Remove"
   }
 }
